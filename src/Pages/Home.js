@@ -30,7 +30,7 @@ const Home = () => {
                 <div className="kutuu">
                     <p><img src={icon} width="50" /><font color="white" className=""> Copyright 2023</font>  <font color="white" className="">I</font> <font color="white" className="" >Tüm Hakları Saklıdır.</font></p>
                     <hr />
-                    <div className="yazı_kutu1 float-l">
+                    <div className=" float-l">
                         <ul className="hover" style={{ textDecoration: "none" }}>
                             <h6 style={{ color: "white" }}>Kurumsal</h6>
                             <Link style={{ textDecoration: "none", listStyle: "none" }}><li style={{ color: "gray" }}>Doğuş Yayın Grubu</li></Link>
@@ -46,7 +46,7 @@ const Home = () => {
                         </ul>
                     </div>
 
-                    <div className="yazı_kutu1 float-l">
+                    <div className="float-l">
                         <ul className="hover" style={{ textDecoration: "none" }}>
                             <h6 style={{ color: "white" }}>DYG TELEVİZYONLAR</h6>
                             <Link style={{ textDecoration: "none", listStyle: "none" }}><li style={{ color: "gray" }}>NTV</li></Link>
@@ -59,7 +59,7 @@ const Home = () => {
                     </div>
 
 
-                    <div className="yazı_kutu1 float-l">
+                    <div className=" float-l">
                         <ul className="hover" style={{ textDecoration: "none" }}>
                             <h6 style={{ color: "white" }}>DYG RADYOLAR</h6>
                             <Link style={{ textDecoration: "none", listStyle: "none" }}><li style={{ color: "gray" }}>NTV RADYO</li></Link>
@@ -72,7 +72,7 @@ const Home = () => {
 
                     </div>
 
-                    <div className="yazı_kutu1 float-l">
+                    <div className=" float-l">
                         <ul className="hover" style={{ textDecoration: "none" }}>
                             <h6 style={{ color: "white" }}>DYG DİJİTAL</h6>
                             <Link style={{ textDecoration: "none", listStyle: "none" }}><li style={{ color: "gray" }}>ntv.com.tr</li></Link>
