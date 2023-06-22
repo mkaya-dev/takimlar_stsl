@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import Profil from './Pages/Profil';
-import Hesap_olusturma from './Pages/Hesap_olusturma';
+import HesapOlusturma from './Pages/HesapOlusturma';
 import Kullaniciadi from './Pages/Kullaniciadi';
 import Sifre from './Pages/Sifre';
 import Puandurumu from './Pages/Puandurumu';
@@ -28,7 +28,7 @@ function App() {
         <Route path="/:id/Duzenle"  element={<Duzenle/>}/>
         <Route path="/OyuncuOlusturma" element={<OyuncuOlusturma/>} />
         <Route path="/Haber" element={<Haber />} />
-        <Route path="/Profil/Hesap_olusturma" element={<Hesap_olusturma />} />
+        <Route path="/Profil/Hesap_olusturma" element={<HesapOlusturma />} />
         <Route path="/Profil/Hesap_olusturma/Kullaniciadi" element={<Kullaniciadi />} />
         <Route path="/Profil/Hesap_olusturma/Kullaniciadi/Sifre" element={<Sifre />} />
         <Route path="/:id/Detay" element={<Detay />} />
