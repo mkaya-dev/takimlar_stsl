@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../Component/Navbar";
 import HashLoader from "react-spinners/HashLoader";
-import icon from "../Resimler/Süperlig_logo.png"
+import icon from "../Resimler/Superlig_logo.png"
 import iconn from "../Resimler/superligg.jpg"
 import { useNavigate } from "react-router-dom"
 
@@ -64,7 +64,7 @@ const OyuncuDetay = () => {
                         <button style={{ margin: 5 }} className="btn btn-outline-dark"><i class="fa-solid fa-arrow-left fa-beat-fade fa-2xs"></i></button>
                     </Link>
                     <button style={{ margin: 5 }} onClick={oyuncuSilmeButton} className="btn btn-outline-danger"> <i class="fa-solid fa-user-tie fa-fade"></i> Sil <i class="fa-solid fa-minus fa-fade"></i></button>
-                   <Link to={`/${oyuncu.id}/OyuncuDüzenle`}>
+                   <Link to={`/${oyuncu.id}/OyuncuDuzenle`}>
                    <button style={{ margin: 5 }}  className="btn btn-outline-primary"><i class="fa-solid fa-rotate-left fa-fade"></i> Düzenleme </button>
                    </Link>
 
@@ -141,7 +141,7 @@ const OyuncuDetay = () => {
                 <div className="kutu3">
                     <button style={{ width: 40, height: 40, margin: 5 }} className="f1 a1 btn btn-light"><i class="fa-brands fa-facebook"></i></button>
                     <button style={{ width: 40, height: 40, margin: 5 }} className="t3 a3 btn btn-light"><i class="fa-brands fa-twitter"></i></button>
-                    <button style={{ width: 40, height: 40, margin: 5 }} className="ı2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
+                    <button style={{ width: 40, height: 40, margin: 5 }} className="i2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
                     <button style={{ width: 40, height: 40, margin: 5 }} className="y4 a4 btn btn-light"><i class="fa-brands fa-youtube"></i></button>
                 </div>
 

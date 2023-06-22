@@ -53,7 +53,7 @@
     transition: all 2s;
 }
 
-.ı2:hover {
+.i2:hover {
     border-bottom: 18px solid rgb(205, 146, 29);
     transition: all 2s;
 }
@@ -223,14 +223,14 @@ body {
     text-align: center;
 }
 
-.Takım_cerceve{
+.Takim_cerceve{
     margin: auto;
     width: 500px;
     height: 720px;
     background-color: rgb(255, 255, 255);
 }
 
-.Takım_cerceve_iç{
+.Takim_cerceve_iç{
     padding: 30px;
 }
 

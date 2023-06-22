@@ -1,87 +1,51 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "../Component/Navbar";
-import icon from "../Resimler/Süperlig_logo.png"
-import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"
-
-const OyuncuDüzenle = () => {
-    const navigate = useNavigate();
-    let { id } = useParams();
-    const data = { name: "", age: "", number: "", position: "", team: "" };
-    const [oyuncudüzenle, setOyuncuDüzennle] = useState(data);
-    const [oyuncu,setOyuncu]=useState(null)
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../Component/Navbar";
+import HashLoader from "react-spinners/HashLoader";
+import icon from "../Resimler/superligg.jpg"
+import "./All.css"
 
 
-    useEffect(() => {
-        const api_link = `https://cryptic-gorge-72989.herokuapp.com/players/${id}`
-        axios.get(api_link)
-            .then(response => {
-                setOyuncu(response.data)
-            })
-    }, [id])
+const TakimDetay = () => {
 
-    if (oyuncu === null) {
-        return (
-            <div className="aci">
-                <p></p>
+    const [toyuncu, setToyuncu] = useState(null)
+
+    const api_link = "https://cryptic-gorge-72989.herokuapp.com/teams"
+    axios.get(api_link)
+        .then(response => {
+            setToyuncu(response.data)
+        },[])
+        if(toyuncu===null){
+            return(
+                <div className="aci">
+            <h1><HashLoader color="red" /></h1>
             </div>
-        )
-    }
-
-    const OyuncuDüzenleChange = (e) => {
-        setOyuncuDüzennle({ ...oyuncudüzenle, [e.target.name]: e.target.value })
-        console.log(setOyuncuDüzennle)
-    }
-
-    const OyuncuDüzenleClick = (e) => {
-        e.preventDefault();
-        axios.put(`https://cryptic-gorge-72989.herokuapp.com/players/${id}`, oyuncudüzenle)
-            .then(response => {
-                console.log(response)
-                console.log(response.data)
-                alert("Oyuncu Düzenleme Başarılı")
-                navigate("/");
-
-            }, [id]).catch(hata => {
-                alert("Düzenleme İçin Alanlar Doldurulmadı")
-            })
-    }
-
+            )
+        }
     return (
         <div>
-            <Navbar />
-            <div className="Profil-cercevesi">
-                <div className="Profil-cerceve-ici">
-                    <div className="orta">
-                        <img src={icon} width="70" />
-                    </div><br />
-                    <div class="form-floating mb-3">
-                        <input name="name" value={oyuncudüzenle.name} onChange={OyuncuDüzenleChange} type="text" class="form-control" placeholder="name@example.com" />
-                        <label for="floatingInput">İsmi:  {oyuncu.name} </label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input name="position" type="text" value={oyuncudüzenle.position} onChange={OyuncuDüzenleChange} class="form-control" placeholder="name@example.com" />
-                        <label for="floatingInput">Oynadıgı Mevki: {oyuncu.position} </label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input name="age" type="number" value={oyuncudüzenle.age} onChange={OyuncuDüzenleChange} class="form-control" placeholder="name@example.com" />
-                        <label for="floatingInput">Yaşı:{oyuncu.age} </label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input name="number" type="number" value={oyuncudüzenle.number} onChange={OyuncuDüzenleChange} class="form-control" placeholder="name@example.com" />
-                        <label for="floatingInput">Forma Numarası:{oyuncu.number} </label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input name="team" type="text" value={oyuncudüzenle.team} onChange={OyuncuDüzenleChange} class="form-control" placeholder="name@example.com" />
-                        <label for="floatingInput">Oynadıgı Takım: {oyuncu.team.name}  </label>
-                    </div><br />
-                    <Link>
-                        <button style={{ marginLeft: 50 }} onClick={OyuncuDüzenleClick} className="btn btn-outline-primary"><i class="fa-solid fa-rotate-left fa-fade"></i> Oyuncu Düzenleme işlemini Tamamla</button>
-                    </Link>
+        <Navbar/><br/>
+            <h4 style={{textAlign:"center",fontSize:25,fontFamily:"-moz-initial",color:"white"}}>Hangi Takımın Futbolcularını Görmek İstiyorsunuz.</h4>
+
+        <div style={{margin:40}} className="col-12 row row-cols-6 row-cols-md-5 g-3">
+           {
+            toyuncu.map(takimlar=>
+                <div>
+                   
+                   <Link style={{color:"white",textDecoration:"none"}} to={`/${takimlar.id}/Oyuncular`}>
+                   <p className="buttona">{takimlar.name}</p>
+                   
+                   </Link> 
                 </div>
-            </div>
-            <div className="cubuk">
+                )
+           }
+
+        </div>
+        <Link to={"/"}>
+        <button style={{margin:5}} className="btn btn-outline-light"><i class="fa-solid fa-arrow-left fa-beat-fade fa-2xs"></i></button>
+        </Link>
+        <div className="cubuk">
                 <div className="kutuu">
                     <p><img src={icon} width="50" /><font color="white" className=""> Copyright 2023</font>  <font color="white" className="">I</font> <font color="white" className="" >Tüm Hakları Saklıdır.</font></p>
                     <hr />
@@ -148,11 +112,12 @@ const OyuncuDüzenle = () => {
             <div className="kutu3">
                 <button style={{ width: 40, height: 40, margin: 5 }} className="f1 a1 btn btn-light"><i class="fa-brands fa-facebook"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="t3 a3 btn btn-light"><i class="fa-brands fa-twitter"></i></button>
-                <button style={{ width: 40, height: 40, margin: 5 }} className="ı2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
+                <button style={{ width: 40, height: 40, margin: 5 }} className="i2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="y4 a4 btn btn-light"><i class="fa-brands fa-youtube"></i></button>
             </div>
         </div>
+
     )
 }
 
-export default OyuncuDüzenle;
+export default TakimDetay;

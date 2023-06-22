@@ -1,13 +1,13 @@
 import Navbar from "../Component/Navbar";
-import React, { useEffect, useState } from "react";
+import React  from "react";
 import Slayt from "../Component/Slayt";
-import Canlı from "../Component/Canlı";
 import icon from "../Resimler/superligg.jpg"
 import tff from "../Resimler/super.jpg";
 import ziraat from "../Resimler/tffe.jpg";
 import { Link } from "react-router-dom";
 import "./All.css";
 import ReactPlayer from 'react-player/youtube';
+import Canli from "../Component/Canli";
 
 const Home = () => {
     return (
@@ -15,7 +15,7 @@ const Home = () => {
             <Navbar />
             <hr />
             <h3 style={{ textAlign: "center", fontSize: 18 }}>Canlı Puan Durumu</h3>
-            <Canlı />
+            <Canli />
             <h5 style={{textAlign:"center",color:"white",fontFamily:"-moz-initial",fontSize:20}}>Süperlig Takımları 22/23</h5><br/>
             <Slayt /><br />
             <div className="video_yerlestirme">
@@ -89,7 +89,7 @@ const Home = () => {
             <div className="kutu3">
                 <button style={{ width: 40, height: 40, margin: 5 }} className="f1 a1 btn btn-light"><i class="fa-brands fa-facebook"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="t3 a3 btn btn-light"><i class="fa-brands fa-twitter"></i></button>
-                <button style={{ width: 40, height: 40, margin: 5 }} className="ı2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
+                <button style={{ width: 40, height: 40, margin: 5 }} className="i2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="y4 a4 btn btn-light"><i class="fa-brands fa-youtube"></i></button>
             </div>
         </div>

@@ -1,83 +1,86 @@
-import React, { useState } from "react";
-import "./All.css"
+import React, { useEffect, useState } from "react";
 import Navbar from "../Component/Navbar";
-import icon from "../Resimler/superligg.jpg"
+import icon from "../Resimler/Superlig_logo.png"
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
-import { Link } from "react-router-dom";
 
-
-const TakımEkle = () => {
-
-    const data = { name: "", city: "", stadium: "", coach: "", established: "", colors: "", rank: "" };
-    const [inputData, setInputdata] = useState(data)
+const OyuncuDuzenle = () => {
     const navigate = useNavigate();
+    let { id } = useParams();
+    const data = { name: "", age: "", number: "", position: "", team: "" };
+    const [oyuncudüzenle, setOyuncuDüzennle] = useState(data);
+    const [oyuncu,setOyuncu]=useState(null)
 
-    const handleData = (e) => {
-        setInputdata({ ...inputData, [e.target.name]: e.target.value })
-        console.log(setInputdata)
+
+    useEffect(() => {
+        const api_link = `https://cryptic-gorge-72989.herokuapp.com/players/${id}`
+        axios.get(api_link)
+            .then(response => {
+                setOyuncu(response.data)
+            })
+    }, [id])
+
+    if (oyuncu === null) {
+        return (
+            <div className="aci">
+                <p></p>
+            </div>
+        )
     }
 
-    const handleSubmit = (e) => {
+    const OyuncuDüzenleChange = (e) => {
+        setOyuncuDüzennle({ ...oyuncudüzenle, [e.target.name]: e.target.value })
+        console.log(setOyuncuDüzennle)
+    }
+
+    const OyuncuDüzenleClick = (e) => {
         e.preventDefault();
-        axios.post("https://cryptic-gorge-72989.herokuapp.com/teams", inputData)
-            .then((respons) => {
-                console.log(respons)
-                navigate("/");  
-                alert("Başarılı Takım Kaydı")
-            }).catch(hata=>{
-                alert("Boş Alanlar Doldurulmadı")
+        axios.put(`https://cryptic-gorge-72989.herokuapp.com/players/${id}`, oyuncudüzenle)
+            .then(response => {
+                console.log(response)
+                console.log(response.data)
+                alert("Oyuncu Düzenleme Başarılı")
+                navigate("/");
+
+            }, [id]).catch(hata => {
+                alert("Düzenleme İçin Alanlar Doldurulmadı")
             })
     }
 
     return (
         <div>
-            <Navbar /><br />
-            <div className="Takım_cerceve">
-                <div className="Takım_cerceve_iç">
+            <Navbar />
+            <div className="Profil-cercevesi">
+                <div className="Profil-cerceve-ici">
                     <div className="orta">
-                        <img src={icon} width="50" /><br /><br />
-                        <p>Takım Ekle <i class="fa-light fa-plus fa-fade"></i></p>
+                        <img src={icon} width="70" />
+                    </div><br />
+                    <div class="form-floating mb-3">
+                        <input name="name" value={oyuncudüzenle.name} onChange={OyuncuDüzenleChange} type="text" class="form-control" placeholder="name@example.com" />
+                        <label for="floatingInput">İsmi:  {oyuncu.name} </label>
                     </div>
-                    <div className="orta">
-                        <div class="form-floating mb-3">
-                            <input name="rank" value={inputData.rank} onChange={handleData} type="number" class="form-control" placeholder="name@example.com" />
-                            <label for="floatingInput">Sıra</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input name="name" value={inputData.name} onChange={handleData} type="text" class="form-control" placeholder="name@example.com" />
-                            <label for="floatingInput">Takım İsmi</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input name="coach" value={inputData.coach} onChange={handleData} type="text" class="form-control" placeholder="name@example.com" />
-                            <label for="floatingInput">Takımın Başındaki Hoca</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input name="city" value={inputData.city} onChange={handleData} type="text" class="form-control" placeholder="name@example.com" />
-                            <label for="floatingInput">Takımın Şehri</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input name="stadium" value={inputData.stadium} onChange={handleData} type="text" class="form-control" placeholder="name@example.com" />
-                            <label for="floatingInput">Takımın Stad İsmi</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input name="colors" value={inputData.colors} onChange={handleData} type="text" class="form-control" placeholder="name@example.com" />
-                            <label for="floatingInput">Takımın Renkleri</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input name="established" value={inputData.established} onChange={handleData} type="number" class="form-control" placeholder="name@example.com" />
-                            <label for="floatingInput">Takımın Kuruluş Tarihi</label>
-                        </div>
-                        <div class="container px-4 text-center">
-                            <div class="row gx-5">
-                                <div class="col">
-                                    <div class="p-3"><button onClick={handleSubmit} style={{ height: 50, width: 140 }} className="btn btn-primary">Ekle <i class="fa-light fa-plus fa-fade"></i></button></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-floating mb-3">
+                        <input name="position" type="text" value={oyuncudüzenle.position} onChange={OyuncuDüzenleChange} class="form-control" placeholder="name@example.com" />
+                        <label for="floatingInput">Oynadıgı Mevki: {oyuncu.position} </label>
                     </div>
+                    <div class="form-floating mb-3">
+                        <input name="age" type="number" value={oyuncudüzenle.age} onChange={OyuncuDüzenleChange} class="form-control" placeholder="name@example.com" />
+                        <label for="floatingInput">Yaşı:{oyuncu.age} </label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input name="number" type="number" value={oyuncudüzenle.number} onChange={OyuncuDüzenleChange} class="form-control" placeholder="name@example.com" />
+                        <label for="floatingInput">Forma Numarası:{oyuncu.number} </label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input name="team" type="text" value={oyuncudüzenle.team} onChange={OyuncuDüzenleChange} class="form-control" placeholder="name@example.com" />
+                        <label for="floatingInput">Oynadıgı Takım: {oyuncu.team.name}  </label>
+                    </div><br />
+                    <Link>
+                        <button style={{ marginLeft: 50 }} onClick={OyuncuDüzenleClick} className="btn btn-outline-primary"><i class="fa-solid fa-rotate-left fa-fade"></i> Oyuncu Düzenleme işlemini Tamamla</button>
+                    </Link>
                 </div>
-            </div><br />
+            </div>
             <div className="cubuk">
                 <div className="kutuu">
                     <p><img src={icon} width="50" /><font color="white" className=""> Copyright 2023</font>  <font color="white" className="">I</font> <font color="white" className="" >Tüm Hakları Saklıdır.</font></p>
@@ -145,10 +148,11 @@ const TakımEkle = () => {
             <div className="kutu3">
                 <button style={{ width: 40, height: 40, margin: 5 }} className="f1 a1 btn btn-light"><i class="fa-brands fa-facebook"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="t3 a3 btn btn-light"><i class="fa-brands fa-twitter"></i></button>
-                <button style={{ width: 40, height: 40, margin: 5 }} className="ı2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
+                <button style={{ width: 40, height: 40, margin: 5 }} className="i2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="y4 a4 btn btn-light"><i class="fa-brands fa-youtube"></i></button>
             </div>
         </div>
     )
 }
-export default TakımEkle;
+
+export default OyuncuDuzenle;

@@ -5,24 +5,22 @@ import t1 from "../Resimler/gs1.png"
 import t2 from "../Resimler/fb.png"
 import t3 from "../Resimler/bjk.png"
 import t4 from "../Resimler/adanademir.png"
-import t5 from "../Resimler/başaksehir.png"
+import t5 from "../Resimler/basaksehir.png"
 import t6 from "../Resimler/ts.png"
 import t7 from "../Resimler/konya.png"
 import t8 from "../Resimler/kayseri.png"
-import t9 from "../Resimler/karagümrük.png"
+import t9 from "../Resimler/karagumruk.png"
 import t10 from "../Resimler/alanya.png"
-import t11 from "../Resimler/kasımpasa.png"
-import t12 from "../Resimler/ankaragücü.png"
+import t11 from "../Resimler/kasimpasa.png"
+import t12 from "../Resimler/ankaragucu.png"
 import t13 from "../Resimler/antalya.png"
 import t14 from "../Resimler/sivas.png"
 import t15 from "../Resimler/istanbul.png"
 import t16 from "../Resimler/giresun.png"
-import t17 from "../Resimler/ümraniye.png"
+import t17 from "../Resimler/umraniye.png"
 import t18 from "../Resimler/gaziantep.png"
 import t19 from "../Resimler/Hatayspor.png"
 import icon from "../Resimler/superligg.jpg"
-import tff from "../Resimler/super.jpg";
-import ziraat from "../Resimler/tffe.jpg";
 
 
 const Puandurumu = () => {
@@ -371,7 +369,7 @@ const Puandurumu = () => {
             <div className="kutu3">
                 <button style={{ width: 40, height: 40, margin: 5 }} className="f1 a1 btn btn-light"><i class="fa-brands fa-facebook"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="t3 a3 btn btn-light"><i class="fa-brands fa-twitter"></i></button>
-                <button style={{ width: 40, height: 40, margin: 5 }} className="ı2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
+                <button style={{ width: 40, height: 40, margin: 5 }} className="i2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="y4 a4 btn btn-light"><i class="fa-brands fa-youtube"></i></button>
             </div>
                

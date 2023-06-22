@@ -9,17 +9,17 @@ import icon from "../Resimler/superligg.jpg"
 
 const Oyuncular = () => {
     let { id } = useParams();
-    const [takım, setTakım] = useState(null)
+    const [takim, setTakim] = useState(null)
 
     useEffect(() => {
         const api_cek = `https://cryptic-gorge-72989.herokuapp.com/teams/${id}`
         axios.get(api_cek)
             .then(response => {
-                setTakım(response.data)
+                setTakim(response.data)
             })
     }, [id])
 
-    if (takım === null) {
+    if (takim === null) {
         return (
             <div className="aci">
                 <h1><HashLoader color="red" /></h1>
@@ -30,10 +30,10 @@ const Oyuncular = () => {
 
         <div>
             <Navbar /><br />
-            <h4 style={{ textAlign: "center", fontFamily: "-moz-initial", fontSize: 25, color: "white" }}>{takım.name} Takımındaki Oyuncular</h4>
+            <h4 style={{ textAlign: "center", fontFamily: "-moz-initial", fontSize: 25, color: "white" }}>{takim.name} Takımındaki Oyuncular</h4>
             <div style={{ margin: 40 }} className="col-12 row row-cols-6 row-cols-md-5 g-3">
                 {
-                    takım.players.map(oyuncu =>
+                    takim.players.map(oyuncu =>
                         <Link style={{ color: "white", textDecoration: "none" }} to={`/${oyuncu.id}/OyuncuDetay`}><div>
                             <p className="buttona">{oyuncu.name}</p>
                         </div>
@@ -41,7 +41,7 @@ const Oyuncular = () => {
                     )
                 }
             </div>
-            <Link to={"/TakımDetay"}>
+            <Link to={"/TakimDetay"}>
                 <button style={{ margin: 5 }} className="btn btn-outline-light"><i class="fa-solid fa-arrow-left fa-beat-fade fa-2xs"></i></button>
             </Link>
             <div className="cubuk">
@@ -111,7 +111,7 @@ const Oyuncular = () => {
             <div className="kutu3">
                 <button style={{ width: 40, height: 40, margin: 5 }} className="f1 a1 btn btn-light"><i class="fa-brands fa-facebook"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="t3 a3 btn btn-light"><i class="fa-brands fa-twitter"></i></button>
-                <button style={{ width: 40, height: 40, margin: 5 }} className="ı2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
+                <button style={{ width: 40, height: 40, margin: 5 }} className="i2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="y4 a4 btn btn-light"><i class="fa-brands fa-youtube"></i></button>
             </div>
         </div>

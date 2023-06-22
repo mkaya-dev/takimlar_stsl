@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 
 const Detay = () => {
     let { id } = useParams();
-    const [takim, SetTakımlar] = useState(null)
+    const [takim, SetTakimlar] = useState(null)
     const navigate = useNavigate();
 
 
@@ -17,7 +17,7 @@ const Detay = () => {
         const api_link = `https://cryptic-gorge-72989.herokuapp.com/teams/${id}`
         axios.get(api_link)
             .then(response => {
-                SetTakımlar(response.data)
+                SetTakimlar(response.data)
             })
 
     }, [id])
@@ -100,7 +100,7 @@ const Detay = () => {
             </Link>
 
             <button style={{ margin: 5 }} onClick={handleClick} className="btn btn-outline-danger"><i class="fa-solid fa-shirt fa-beat-fade"></i> Sil <i class="fa-solid fa-minus fa-fade"></i></button>
-           <Link to={`/${takim.id}/Düzenle`}>
+           <Link to={`/${takim.id}/Duzenle`}>
            <button style={{ margin: 5 }} className="btn btn-outline-primary"><i class="fa-solid fa-rotate-left fa-fade"></i> Düzenleme </button>
            </Link> 
 
@@ -109,7 +109,7 @@ const Detay = () => {
                 <div className="kutuu">
                     <p><img src={icon} width="50" /><font color="white" className=""> Copyright 2023</font>  <font color="white" className="">I</font> <font color="white" className="" >Tüm Hakları Saklıdır.</font></p>
                     <hr />
-                    <div className="yazı_kutu1 float-l">
+                    <div className="yazi_kutu1 float-l">
                         <ul className="hover" style={{ textDecoration: "none" }}>
                             <h6 style={{ color: "white" }}>Kurumsal</h6>
                             <Link style={{ textDecoration: "none", listStyle: "none" }}><li style={{ color: "gray" }}>Doğuş Yayın Grubu</li></Link>
@@ -126,7 +126,7 @@ const Detay = () => {
 
                     </div>
 
-                    <div className="yazı_kutu1 float-l">
+                    <div className="yazi_kutu1 float-l">
                         <ul className="hover" style={{ textDecoration: "none" }}>
                             <h6 style={{ color: "white" }}>DYG TELEVİZYONLAR</h6>
                             <Link style={{ textDecoration: "none", listStyle: "none" }}><li style={{ color: "gray" }}>NTV</li></Link>
@@ -140,7 +140,7 @@ const Detay = () => {
                     </div>
 
 
-                    <div className="yazı_kutu1 float-l">
+                    <div className="yazi_kutu1 float-l">
                         <ul className="hover" style={{ textDecoration: "none" }}>
                             <h6 style={{ color: "white" }}>DYG RADYOLAR</h6>
                             <Link style={{ textDecoration: "none", listStyle: "none" }}><li style={{ color: "gray" }}>NTV RADYO</li></Link>
@@ -153,7 +153,7 @@ const Detay = () => {
 
                     </div>
 
-                    <div className="yazı_kutu1 float-l">
+                    <div className="yazi_kutu1 float-l">
                         <ul className="hover" style={{ textDecoration: "none" }}>
                             <h6 style={{ color: "white" }}>DYG DİJİTAL</h6>
                             <Link style={{ textDecoration: "none", listStyle: "none" }}><li style={{ color: "gray" }}>ntv.com.tr</li></Link>
@@ -172,7 +172,7 @@ const Detay = () => {
             <div className="kutu3">
                 <button style={{ width: 40, height: 40, margin: 5 }} className="f1 a1 btn btn-light"><i class="fa-brands fa-facebook"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="t3 a3 btn btn-light"><i class="fa-brands fa-twitter"></i></button>
-                <button style={{ width: 40, height: 40, margin: 5 }} className="ı2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
+                <button style={{ width: 40, height: 40, margin: 5 }} className="i2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="y4 a4 btn btn-light"><i class="fa-brands fa-youtube"></i></button>
             </div>
 

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./All.css"
-import icon from "../Resimler/Süperlig_logo.png"
+import icon from "../Resimler/Superlig_logo.png"
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Kayıtol = () => {
+const Kayitol = () => {
 
     const data = { name: "", email: "", password: "" };
     const [kayit, setKayitol] = useState(data)
@@ -50,4 +50,4 @@ const Kayıtol = () => {
     )
 }
 
-export default Kayıtol;
+export default Kayitol;

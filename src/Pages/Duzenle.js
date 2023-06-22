@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Component/Navbar";
 import { Link, useParams } from "react-router-dom";
-import icon from "../Resimler/Süperlig_logo.png"
+import icon from "../Resimler/Superlig_logo.png"
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
 
 
-const Düzenle = () => {
+const Duzenle = () => {
     const navigate = useNavigate();
     const data = { name: "", city: "", stadium: "", coach: "", established: "", colors: "", rank: "" };
     const [düzenle, setDüzenle] = useState(data)
@@ -158,11 +158,11 @@ const Düzenle = () => {
             <div className="kutu3">
                 <button style={{ width: 40, height: 40, margin: 5 }} className="f1 a1 btn btn-light"><i class="fa-brands fa-facebook"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="t3 a3 btn btn-light"><i class="fa-brands fa-twitter"></i></button>
-                <button style={{ width: 40, height: 40, margin: 5 }} className="ı2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
+                <button style={{ width: 40, height: 40, margin: 5 }} className="i2 a2 btn btn-light"><i class="fa-brands fa-instagram"></i></button>
                 <button style={{ width: 40, height: 40, margin: 5 }} className="y4 a4 btn btn-light"><i class="fa-brands fa-youtube"></i></button>
             </div>
         </div>
     )
 }
 
-export default Düzenle;
+export default Duzenle;
