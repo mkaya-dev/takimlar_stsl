@@ -15,5 +15,5 @@ API POST, DELETE, UPDATE işlemlerini yaparak tecrübeler edindim.
 - Bootstrap
 
 ### Proje Linkleri:
-- Canlı Demo: [`https://mkaya-superlig.netlify.app/`](https://mkaya-hesapmakinesi.netlify.app/)
+- Canlı Demo: [`https://mkaya-superlig.netlify.app/`](https://mkaya-superlig.netlify.app/)
 - [![Netlify Status](https://api.netlify.com/api/v1/badges/59fdffcc-5faa-4d49-83a0-3a2b43e9dce4/deploy-status)](https://app.netlify.com/sites/mkaya-superlig/deploys)
